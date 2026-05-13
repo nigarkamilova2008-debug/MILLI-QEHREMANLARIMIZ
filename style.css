@@ -1,0 +1,552 @@
+/* ========================================================
+   ÜMUMİ TƏNZİMLƏMƏLƏR
+   Burada bütün səhifənin rəngini, şriftini və arxa fonunu seçirik.
+   ======================================================== */
+   body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lora', serif; /* Saytın əsas şrifti (klassik görünüş üçün) */
+    background-color: #04080E; /* Çox tünd göy/qara rəng */
+    color: #F5F0E8; /* Krem rəngi (Göz yormaması üçün ağın əvəzinə) */
+    
+    /* Arxa fona bayraq şəkli əlavə edirik, amma qaranlıq olsun deyə üstündən rəng çəkirik */
+    background-image: linear-gradient(rgba(4, 8, 14, 0.9), rgba(4, 8, 14, 0.9)), 
+                      url('https://upload.wikimedia.org/wikipedia/commons/d/dd/Flag_of_Azerbaijan.svg');
+    background-size: cover; /* Şəkli ekrana tam sığdırır */
+    background-attachment: fixed; /* Scroll edəndə arxa fon yerində donub qalır (bu möhtəşəm görünür) */
+    background-position: center;
+}
+
+/* Başlıqlar üçün xüsusi şrift (böyük və kəskin hərflər) */
+h1, h2, h3, h4 {
+    font-family: 'Cinzel', serif;
+    margin: 0;
+}
+
+/* ========================================================
+   YUXARI MENYU
+   ======================================================== */
+.menyu {
+    background-color: rgba(4, 8, 14, 0.95); /* Demək olar ki qara, amma biraz şəffaf */
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between; /* Loqonu tam sola, linkləri tam sağa atır */
+    align-items: center; /* Hündürlüyünə görə tam ortalayır */
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3); /* Qızılı alt xətt */
+    position: sticky; /* Səhifəni aşağı sürüşdürəndə menyu yuxarıda yapışıb qalır */
+    top: 0;
+    z-index: 100; /* Hər şeyin üstündə görünməsi üçün */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Bayraqla yazının arasını açır */
+    color: #D4AF37; /* Qızılı rəng */
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase; /* Hərfləri böyük yazır */
+}
+
+.kicik-bayraq {
+    width: 45px;
+    border-radius: 3px;
+}
+
+.menyu ul {
+    list-style: none; /* Linklərin yanındakı qara nöqtələri silir */
+    display: flex; /* Linkləri yan-yana düzür */
+    gap: 30px; /* Linklər arasındakı məsafə */
+    margin: 0;
+    padding: 0;
+}
+
+.menyu ul li a {
+    color: rgba(245, 240, 232, 0.7); /* Zəif ağ rəng */
+    text-decoration: none; /* Linklərin altındakı xətti silir */
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: color 0.3s; /* Rəngin dəyişməsi anidən olmasın, yavaşca (0.3 saniyəyə) olsun */
+}
+
+.menyu ul li a:hover {
+    color: #D4AF37; /* Üstünə mouse gələndə qızılı olsun */
+}
+
+/* ========================================================
+   ƏSAS BAŞLIQ (HERO) BÖLMƏSİ
+   ======================================================== */
+.esas-basliq {
+    display: flex; /* Metn ilə bayrağı yan-yana qoyur */
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px 50px;
+    max-width: 1200px;
+    margin: 0 auto; /* Tam mərkəzləşdirir */
+}
+
+.basliq-metn {
+    width: 50%; /* Metn sol tərəfin yarısını (50%) tutur */
+}
+
+.ust-yazi {
+    color: #D4AF37;
+    font-size: 14px;
+    letter-spacing: 4px; /* Hərflərin aralığını genişlədirik ki, premium görünsün */
+    margin-bottom: 20px;
+}
+
+.basliq-metn h1 {
+    font-size: 65px; /* Başlıq çox böyükdür */
+    color: #D4AF37; /* Qızılı rəng */
+    line-height: 1.1; /* Sətirlər bir-birinə yaxın olsun */
+    margin-bottom: 15px;
+}
+
+.alt-yazi {
+    color: rgba(245, 240, 232, 0.5);
+    font-size: 16px;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+.izah {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #cccccc;
+    margin-bottom: 40px;
+}
+
+.duymeler {
+    display: flex;
+    gap: 20px; /* Düymələrin arasını açır */
+}
+
+.duyme {
+    padding: 15px 30px; /* İçəri boşluq */
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 5px; /* Küncləri yüngülcə yuvarlaqlaşdırır */
+    transition: 0.3s;
+}
+
+.qirmizi-duyme {
+    background-color: #EF3340; /* Azərbaycan bayrağı qırmızı rəngi */
+    color: white;
+}
+
+.qirmizi-duyme:hover {
+    background-color: #bd1f2b; /* Hover-də bir az tündləşir */
+}
+
+.qizili-duyme {
+    border: 1px solid #D4AF37; /* İçinin rəngi yoxdur, ancaq kənarı var */
+    color: #D4AF37;
+}
+
+.qizili-duyme:hover {
+    background-color: rgba(212, 175, 55, 0.2);
+}
+
+.basliq-bayraq {
+    width: 45%; /* Sağ tərəfdəki bayraq yerinin ölçüsü */
+}
+
+.boyuk-bayraq {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8); /* Qaranlıq kölgə ilə şəkil çox önə çıxır */
+}
+
+/* ========================================================
+   STATİSTİKA BÖLMƏSİ
+   ======================================================== */
+.statistika {
+    display: flex; /* 4 rəqəmi yan-yana düzür */
+    justify-content: space-between;
+    padding: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(212, 175, 55, 0.3); /* Yuxarı qızılı xətt */
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3); /* Aşağı qızılı xətt */
+    background-color: rgba(255, 255, 255, 0.02); /* Çox yüngül işıqlı fon */
+}
+
+.stat-qutu {
+    text-align: center;
+    width: 25%;
+    border-right: 1px solid rgba(212, 175, 55, 0.2); /* Sağa xətt çəkir (bölmək üçün) */
+}
+
+.stat-qutu:last-child {
+    border-right: none; /* Sonuncu qutunun sağında xətt lazım deyil */
+}
+
+.stat-qutu h2 {
+    color: #D4AF37;
+    font-size: 50px;
+}
+
+.stat-qutu p {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: #999;
+    letter-spacing: 2px;
+}
+
+/* ========================================================
+   QƏHRƏMANLAR BÖLMƏSİ (Şüşə tipli kartlar)
+   ======================================================== */
+.qehremanlar-bolmesi {
+    padding: 80px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.bolme-basliqi {
+    text-align: center;
+    font-size: 40px;
+    color: #ffffff;
+    margin-bottom: 50px;
+}
+
+.qehremanlar-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Həmişə tam olaraq 3 sütun (yan-yana 3 ədəd) olmasını qarantiləyir */
+    gap: 30px; /* Kartlar arası boşluq */
+}
+
+.qehreman-kart {
+    width: 100%; /* Grid-də hər kart öz sütununu tam tutur */
+    background-color: rgba(255, 255, 255, 0.05); /* Yarı şəffaf fon (Glassmorphism) */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden; /* İçindəki şəklin küncləri çölə çıxmasın */
+    transition: 0.4s; /* Hover effekti yavaş olsun */
+    box-sizing: border-box;
+}
+
+.qehreman-kart:hover {
+    transform: translateY(-10px); /* Siçanı üzərinə gətirdikdə kart yuxarı qalxır */
+    border-color: #D4AF37; /* Kənarı qızılı olur */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6); /* Kölgə böyüyür */
+}
+
+.qehreman-kart img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover; /* Şəkli sıxmadan və formanı pozmadan sahəyə doldurur */
+    filter: grayscale(40%); /* Şəkilləri əvvəlcə bir az boz göstəririk (tarixi görünüş üçün) */
+    transition: 0.4s;
+}
+
+.qehreman-kart:hover img {
+    filter: grayscale(0%); /* Mouse gələndə rəngi tam rəngli olur */
+}
+
+.kart-melumat {
+    padding: 25px;
+}
+
+/* Kiçik Rəngli Etiketlər */
+.kateqoriya {
+    padding: 5px 12px;
+    border-radius: 3px;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.milli { background-color: #EF3340; color: white; }
+.herbi { background-color: #0092BC; color: white; }
+.siyasi { background-color: #509E2F; color: white; }
+.elm { background-color: #D4AF37; color: black; }
+.medeniyyet { background-color: #D4AF37; color: black; }
+
+.kart-melumat h3 {
+    margin-top: 15px;
+    font-size: 24px;
+    color: white;
+}
+
+.kart-melumat .il {
+    color: #D4AF37;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.kart-melumat .bio {
+    color: #bbb;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* ========================================================
+   SEÇİLMİŞ QƏHRƏMAN
+   ======================================================== */
+.xususi-bolme {
+    display: flex; /* Şəkil və yazını yan-yana qoyur */
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    padding: 80px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.xususi-sekil {
+    width: 40%;
+    position: relative; /* Üzərində etiket (label) yerləşdirmək üçündür */
+}
+
+.xususi-sekil img {
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid #D4AF37; /* Qızılı kənar xətt */
+}
+
+/* Şəklin üstündəki qırmızı etiket */
+.xususi-etiket {
+    position: absolute;
+    top: 20px;
+    left: -20px; /* Şəkildən azacıq kənara çıxır */
+    background-color: #EF3340;
+    color: white;
+    padding: 10px 20px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    box-shadow: 4px 4px 15px rgba(0,0,0,0.5);
+}
+
+.xususi-metn {
+    width: 50%;
+}
+
+.xususi-metn h4 {
+    color: #D4AF37;
+    margin-bottom: 10px;
+    font-family: Arial, sans-serif;
+    letter-spacing: 2px;
+}
+
+.xususi-metn h2 {
+    font-size: 45px;
+    color: white;
+}
+
+.xususi-metn ul {
+    list-style: none; /* Siyahı nöqtələrini silir */
+    padding: 0;
+    color: #bbb;
+    line-height: 2.2; /* Sətirlər arasını açır */
+    font-size: 16px;
+}
+
+/* ========================================================
+   TARİXİ ZAMAN XƏTTİ (Sadə və vizual)
+   ======================================================== */
+.tarix-bolmesi {
+    padding: 80px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.zaman-xetti {
+    display: flex; /* Yan-yana qutular şəklində olacaq */
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.zaman-qutusu {
+    width: 20%;
+    background-color: rgba(255, 255, 255, 0.05); /* Yüngül şüşə fon */
+    padding: 20px;
+    border-top: 4px solid #D4AF37; /* Yuxarısına qalın qızılı xətt çəkir */
+    text-align: center;
+    transition: 0.3s;
+}
+
+.zaman-qutusu:hover {
+    background-color: rgba(212, 175, 55, 0.1); /* Hover olanda saralır */
+}
+
+.zaman-qutusu h3 {
+    color: #D4AF37;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.zaman-qutusu p {
+    color: #ccc;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* ========================================================
+   SİTAT BÖLMƏSİ (Ortada yazılan gözəl söz)
+   ======================================================== */
+.sitat-bolmesi {
+    text-align: center;
+    padding: 80px 50px;
+    background-color: rgba(0, 0, 0, 0.6); /* Fonu biraz tünd edirik */
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.sitat-metn {
+    font-size: 28px;
+    font-style: italic; /* Kursiv (əyri) yazı */
+    color: white;
+    max-width: 800px;
+    margin: 0 auto 20px;
+    line-height: 1.6;
+}
+
+.sitat-muellif {
+    color: #D4AF37;
+    font-family: Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* ========================================================
+   FİLMLƏR BÖLMƏSİ
+   ======================================================== */
+.filmler-bolmesi {
+    padding: 80px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.filmler-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.film-kart {
+    width: calc(25% - 15px); /* Ekranda 4 dənəsi sığsın deyə 25% */
+    background: linear-gradient(160deg, rgba(60, 0, 0, 0.5) 0%, rgba(10, 5, 5, 0.9) 100%); /* Tünd qırmızıdan qaraya keçid */
+    padding: 40px 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-sizing: border-box;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.film-kart:hover {
+    transform: translateY(-5px);
+    border-color: #D4AF37;
+}
+
+.film-il {
+    color: #D4AF37;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.film-nov {
+    display: inline-block;
+    background-color: #EF3340;
+    color: white;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    margin-top: 15px;
+}
+
+/* ========================================================
+   FOOTER (SƏHİFƏ SONU)
+   ======================================================== */
+footer {
+    background-color: #02050A; /* Tam qara rəng */
+    padding: 60px 50px 20px;
+    text-align: center;
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.footer-bayraq {
+    width: 60px;
+    margin-bottom: 20px;
+}
+
+.footer-icerik h3 {
+    color: #D4AF37;
+    letter-spacing: 3px;
+    font-size: 20px;
+}
+
+.footer-icerik p {
+    color: #888;
+    max-width: 500px;
+    margin: 15px auto 40px;
+    line-height: 1.5;
+}
+
+.footer-alt {
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Ayrıcı xətt */
+    padding-top: 20px;
+    color: #555;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+/* ========================================================
+   MOBİL EKRANLAR ÜÇÜN
+   Bu kodlar ancaq telefon və ya planşetdə işə düşür (ekran daralanda)
+   ======================================================== */
+@media (max-width: 900px) {
+    /* Yan-yana olan şeyləri alt-alta yığırıq (flex-direction: column) */
+    .esas-basliq, .xususi-bolme, .statistika {
+        flex-direction: column; 
+        text-align: center;
+    }
+    
+    .basliq-metn, .basliq-bayraq, .xususi-sekil, .xususi-metn, .stat-qutu {
+        width: 100%; /* Hamısı tam enini tutur */
+        margin-bottom: 30px;
+    }
+    
+    .statistika {
+        padding: 30px 20px;
+    }
+    .stat-qutu {
+        border-right: none;
+        border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        padding-bottom: 20px;
+    }
+    .stat-qutu:last-child {
+        border-bottom: none;
+    }
+
+    .qehremanlar-grid {
+        grid-template-columns: 1fr; /* Mobildə yan-yana yox, alt-alta 1 ədəd olsun */
+    }
+
+    .qehreman-kart, .film-kart {
+        width: 100%; /* Kartlar mobil telefonda təkbaşına ekranı tutur */
+    }
+
+    .zaman-xetti {
+        flex-direction: column;
+    }
+    .zaman-qutusu {
+        width: 100%;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+    }
+    .menyu ul {
+        display: none; /* Mobildə menyunu gizlədirik ki qarışıqlıq düşməsin (istəyə görə açmaq olar) */
+    }
+    .basliq-metn h1 {
+        font-size: 40px; /* Mobildə hərflər kiçilir */
+    }
+}
